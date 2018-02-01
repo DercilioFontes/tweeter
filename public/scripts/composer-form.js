@@ -14,4 +14,14 @@ $(document).ready(function() {
     }
   });
 
-});
+  // Sets the nav-bar button ("Compose") as toggle to slide showing and hidding the new-tweet form
+  $( function() {
+
+    $( "#nav-bar button" ).click(function() {
+      $( ".new-tweet").slideToggle( );
+      $( ".new-tweet form textarea").focus();
+    });
+  } );
+
+  $( ".new-tweet").hide();
+}); 

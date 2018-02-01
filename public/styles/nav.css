@@ -22,3 +22,19 @@
   float: left;
   margin-left: 10px;
 }
+
+#nav-bar button {
+  color: #0FA28A;
+  background-color: #E7FDFF;
+  font-size: 1.5em;
+  float: right;
+  margin: 0.4em 1em;
+  border-radius: 5px;
+  padding: 1%;
+  border-color: black;
+}
+
+#nav-bar button:hover {
+  background-color: white;
+  color: black
+}

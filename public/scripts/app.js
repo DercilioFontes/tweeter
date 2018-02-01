@@ -6,10 +6,41 @@
 
 $(document).ready(function() {
 
+  // Get the data after submitted from the new tweet form 
+  $('.new-tweet form').on('submit', function(event) {
+
+    // Prevent the default behaviour
+    event.preventDefault();
+
+    // Get the data from the form
+    const data = $('.new-tweet form').serialize();
+
+    // Checks if empty or with more then 140 characters and alert the user
+    if (data === 'text=') {
+      alert(`Sorry! You can't submit a empty tweet!`);
+    } else if (data.length > 145) {
+      alert(`Sorry! You can't submit a tweet with more the 140 characters!`);
+    } else {
+
+      // Submit using AJAX
+      $.ajax({ 
+        url: '/tweets', 
+        method: 'POST',
+        data: data, 
+        success: function (result) {
+          // Empties the tweets and loads all tweets again (with the new one sent to database)
+          $('#tweets-container').empty();
+          loadTweets();
+          $('.new-tweet form textarea').val("");
+        }
+      });
+    }
+
+  });
+
   // Gets time in milliseconds and returns how many days ago
   function getDaysAgo(timeX) {
-    const date = new Date();
-    const currentDate = date.getDate();
+    const currentDate = Date.now();
     const timeUntilNow = currentDate - timeX;
     const daysAgo = Math.round(Math.abs(timeUntilNow / (24 * 60 * 60 * 1000)));
 
@@ -50,10 +81,9 @@ $(document).ready(function() {
   function renderTweets(tweets) {
 
     tweets.forEach(function(tweetObj) {
-
       const $tweet = createTweetElement(tweetObj);
-      // takes return value and appends it to the tweets container
-      $('#tweets-container').append($tweet);
+      // takes return value and prepends it to the tweets container
+      $('#tweets-container').prepend($tweet);
     });
   }
 
@@ -65,8 +95,6 @@ $(document).ready(function() {
       method: 'GET', 
       success: function (tweetsJSON) {
         renderTweets(tweetsJSON);
-        // Test!
-        // console.log('Success: ', tweetsJSON);
       }
     });
   }
