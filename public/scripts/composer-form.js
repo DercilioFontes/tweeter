@@ -1,18 +1,17 @@
 $(document).ready(function() {
-  let totalLength = 140;
 
   // Gets the input in the textarea and counts the characters.
-  $('.new-tweet').children('form').children('textarea').on('keyup', function() {
-    var text  = $(this).val();
+  $(".new-tweet form textarea").on("keyup", function() {
+    const text  = $(this).val();
 
-    // Sets counter of remaining characters and red if negative (and returns black if come back to be positive)
-    var remainingCharacters = totalLength - text.length;
-    if (remainingCharacters < 0) {
-      $(this).parent().children('span').text(remainingCharacters).css("color", "red");
+    // Sets counter of remaining characters and red if negative (and returns black if returns to be positive)
+    if ((140 - text.length) < 0) {
+      $(this).parent().children("span").text(140 - text.length).css("color", "red");
     } else {
-      $(this).parent().children('span').text(remainingCharacters).css("color", "black");
+      $(this).parent().children("span").text(140 - text.length).css("color", "black");
     }
   });
+
 
   // Sets the nav-bar button ("Compose") as toggle to slide showing and hidding the new-tweet form
   $( function() {
@@ -24,4 +23,5 @@ $(document).ready(function() {
   } );
 
   $( ".new-tweet").hide();
-}); 
+  
+});
