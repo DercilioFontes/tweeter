@@ -3,7 +3,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-It is a full stack web application built with HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+It is a full stack web application built with HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express, SASS and MongoDB back-end skills.
 
 ## Final Product
 
@@ -19,6 +19,7 @@ Showing form to creat a new tweet
 - Express
 - body-parser
 - MongoDB
+- node-sass-middleware
 
 ## Getting Started
 
