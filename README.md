@@ -7,10 +7,10 @@ It is a full stack web application built with HTML, CSS, JS, jQuery and AJAX fro
 
 ## Final Product
 
-####Showing Tweets
+Showing Tweets
 ![Showing Tweets](https://raw.githubusercontent.com/DercilioFontes/tweeter/master/docs/Tweets.png)
 
-####Showing form to creat a new tweet
+Showing form to creat a new tweet
 ![Showing form to creat a new tweet](https://raw.githubusercontent.com/DercilioFontes/tweeter/master/docs/Compose-Tweet.png)
 
 ## Dependencies
